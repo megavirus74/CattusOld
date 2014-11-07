@@ -91,6 +91,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Enemy\Wall.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\Player\Player.cs" />
     <Compile Include="Game.cs" />
@@ -113,16 +114,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Entities\Enemy\" />
     <Folder Include="Resource\fonts\" />
     <Folder Include="Resource\Icon\" />
     <Folder Include="Resource\Image\Effects\" />
-    <Folder Include="Resource\Image\Enemy\" />
     <Folder Include="Resource\Image\GUI\" />
     <Folder Include="Resource\Music\" />
     <Folder Include="Resource\Sound\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resource\Image\Enemy\Wall.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resource\Image\Player\Player.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -5,7 +5,9 @@ namespace Cattus.Entities.Player {
     internal class Player : Entity {
         private int speed = 300;
 
-        public Player() : base(Resources.Player) {
+        public Player() : base(Resources.Player)
+        {
+            Tag = Tags.Player;
         }
 
         public void Control(float dt) {
@@ -26,5 +28,15 @@ namespace Cattus.Entities.Player {
                 PositionY -= speed * dt;
             }
         }
+
+        public override void Collision(Entity other)
+        {
+            base.Collision(other);
+
+            if (other.Tag == Tags.Enemy)
+            {
+                Log.Debug("Player collisiong with wall");
+            }
+    }
     }
 }

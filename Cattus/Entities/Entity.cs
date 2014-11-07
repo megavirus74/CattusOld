@@ -35,6 +35,7 @@ namespace Cattus.Entities {
         /// </summary>
         /// <param name="other"> Объект с которым произошло столкновение </param>
         public virtual void Collision(Entity other) {
+
         }
 
 
