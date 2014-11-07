@@ -4,28 +4,28 @@ using CocosSharp;
 namespace Cattus.Entities.Player {
     internal class Player : Entity {
         private int speed = 300;
-
+        private int dir = 1;
         public Player() : base(Resources.Player)
         {
             Tag = Tags.Player;
         }
 
-        public void Control(float dt) {
-            if (Input.IsKeyIn(CCKeys.Left))
-            {
-                PositionX -= speed*dt;
-            }
+        public override void OnEnter()
+        {
+            base.OnEnter();
+            Schedule(Update);
+        }
 
-            if (Input.IsKeyIn(CCKeys.Right))
-            {
-                PositionX += speed*dt;
-            }
-            if (Input.IsKeyIn(CCKeys.Up)) {
-                PositionY += speed * dt;
-            }
+        public override void Update(float dt)
+        {
+            base.Update(dt);
+            Move(dt);
+        }
 
-            if (Input.IsKeyIn(CCKeys.Down)) {
-                PositionY -= speed * dt;
+        public void OnKeyPressed(CCKeys e) {
+            if (e == CCKeys.Space)
+            {
+                dir = dir*(-1);
             }
         }
 
@@ -37,6 +37,13 @@ namespace Cattus.Entities.Player {
             {
                 Log.Debug("Player collisiong with wall");
             }
-    }
+        }
+
+        public void Move(float dt)
+            {
+                PositionX += speed*dt*dir;
+            if (PositionX > Window.WindowSizeInPixels.Width) dir = -1;
+            if (PositionX < 0) dir = 1;
+            }
     }
 }

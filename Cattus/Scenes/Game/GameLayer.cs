@@ -15,13 +15,20 @@ namespace Cattus.Scenes.Game {
         List<Entity> entities=new List<Entity>();
         public GameLayer() {
             player = new Player() {
-                PositionX = 400,
-                PositionY = 300
+                PositionX = Settings.ScreenWidth/2,
+                PositionY = 200
             };
             AddEntity(new Wall(){Position = new CCPoint(200, 200)});
             AddEntity(player);
+
+            var listener = new CCEventListenerKeyboard { OnKeyPressed = OnKeyPressed };
+            AddEventListener(listener);
         }
 
+        private void OnKeyPressed(CCEventKeyboard e)
+        {
+            player.OnKeyPressed(e.Keys);
+        }
 
 
         public void AddEntity(Entity objEntity)
@@ -45,7 +52,6 @@ namespace Cattus.Scenes.Game {
         public override void Update(float dt) {
             base.Update(dt);
             UpdateCollision();
-            player.Control(dt);
         }
 
         private void UpdateCollision()
