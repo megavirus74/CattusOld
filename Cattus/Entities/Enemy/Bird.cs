@@ -29,6 +29,7 @@ namespace Cattus.Entities.Enemy
             if (PositionY < 0)
             {
                 Position = new CCPoint(0, 500);
+                speed += 50;
             }
         }
     }
