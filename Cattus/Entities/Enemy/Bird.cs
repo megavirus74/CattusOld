@@ -1,4 +1,6 @@
-﻿namespace Cattus.Entities.Enemy
+﻿using CocosSharp;
+
+namespace Cattus.Entities.Enemy
 {
     internal class Bird : Entity
     {
@@ -24,6 +26,10 @@
             PositionX += speed * dt;
             PositionY -= speed * dt;
 
+            if (PositionY < 0)
+            {
+                Position = new CCPoint(0, 500);
+            }
         }
     }
 }

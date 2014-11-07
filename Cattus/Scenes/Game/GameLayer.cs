@@ -19,15 +19,15 @@ namespace Cattus.Scenes.Game {
                 PositionX = Settings.ScreenWidth/2,
                 PositionY = 200
             };
-            AddEntity(new Wall(){Position = new CCPoint(200, 200)});
             AddEntity(player);
 
             bird = new Bird()
             {
-                PositionX = -100,
-                PositionY = 600
+                PositionX = 0,
+                PositionY = 500
             };
-           AddEntity(bird);
+            AddEntity(bird);
+
 
 
             var listener = new CCEventListenerKeyboard { OnKeyPressed = OnKeyPressed };
