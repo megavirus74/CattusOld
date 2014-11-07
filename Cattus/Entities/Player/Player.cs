@@ -38,7 +38,7 @@ namespace Cattus.Entities.Player
         {
             if (e == CCKeys.Space)
             {
-                dir = dir*(-1);
+                InvertDir();
             }
         }
 
@@ -48,10 +48,14 @@ namespace Cattus.Entities.Player
 
             if (other.Tag == Tags.Enemy)
             {
-                Log.Debug("Player collisiong with wall");
                 Window.DefaultDirector.PopScene();
-                 
+                Log.Debug("Player collisiong with enemy");
             }
+        }
+
+        private void InvertDir()
+        {
+            dir *= -1;
         }
 
         public void Move(float dt)
