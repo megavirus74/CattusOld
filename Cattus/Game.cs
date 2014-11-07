@@ -1,4 +1,5 @@
-﻿using Cattus.Scenes.Menu;
+﻿using Cattus.Scenes.Game;
+using Cattus.Scenes.Menu;
 using CocosSharp;
 
 namespace Cattus {
@@ -21,7 +22,7 @@ namespace Cattus {
             mainWindow.AllowUserResizing = false;
 
 
-            _startScene = new MenuScene(mainWindow);
+            _startScene = new GameScene(mainWindow);
             mainWindow.RunWithScene(_startScene);
         }
     }

@@ -1,13 +1,25 @@
-﻿using Cattus.Utils;
+﻿using System;
+using Cattus.Utils;
 using CocosSharp;
 
-namespace Cattus.Entities.Player {
-    internal class Player : Entity {
-        private int speed = 300;
+namespace Cattus.Entities.Player
+{
+    internal class Player : Entity
+    {
+        /// <summary>
+        /// a - ускорение
+        /// MaxSpeed - макс скорость
+        /// speed - текущая скорость
+        /// </summary>
         private int dir = 1;
+        private int speed = 0;
+        private const int MaxSpeed = 400;
+        private const int a = 50;
+
         public Player() : base(Resources.Player)
         {
             Tag = Tags.Player;
+            Scale = 3;
         }
 
         public override void OnEnter()
@@ -22,7 +34,8 @@ namespace Cattus.Entities.Player {
             Move(dt);
         }
 
-        public void OnKeyPressed(CCKeys e) {
+        public void OnKeyPressed(CCKeys e)
+        {
             if (e == CCKeys.Space)
             {
                 dir = dir*(-1);
@@ -41,10 +54,18 @@ namespace Cattus.Entities.Player {
         }
 
         public void Move(float dt)
-            {
-                PositionX += speed*dt*dir;
-            if (PositionX > Window.WindowSizeInPixels.Width) dir = -1;
-            if (PositionX < 0) dir = 1;
-            }
+        {
+            PositionX += speed*dt;
+            Log.Debug(Mask.MaxX.ToString());
+            if (Mask.MaxX > Window.WindowSizeInPixels.Width-50) dir = -1;
+            if (Mask.MinX < 50) dir = 1;
+            
+            speed += a*dir;
+            if (speed > MaxSpeed)
+                speed = MaxSpeed;
+            if (speed < -MaxSpeed)
+                speed = -MaxSpeed;
+
+        }
     }
 }
