@@ -9,13 +9,13 @@ namespace Cattus.Scenes.Game {
 
         public GameScene(CCWindow window): base(window) {
             GameBackground = new GameBackground();
-            AddChild(GameBackground);
+            AddChild(GameBackground, -5);
 
             GameLayer = new GameLayer();
-            AddChild(GameLayer);
+            AddChild(GameLayer, 0);
 
             GameGui = new GameGui(GameLayer);
-            AddChild(GameGui);
+            AddChild(GameGui, 5);
 
             var generalListener = new CCEventListenerKeyboard {
                 OnKeyPressed = OnKeyPressed,

@@ -9,13 +9,15 @@ namespace Cattus.Scenes.Game {
         public readonly List<Entity> Entities = new List<Entity>();
         public readonly Player Player;
 
+        public float GameTime = 0f;
+
         /** Game stats */
-        public int Score;
+        public int Score = 0;
         public GameLayer() {
 
             Score = 0;
 
-            Player = new Player {
+            Player = new Player(this) {
                 PositionX = Settings.ScreenWidth/2,
                 PositionY = Settings.StartPlayerHeight
             };
@@ -53,7 +55,12 @@ namespace Cattus.Scenes.Game {
 
         public override void Update(float dt) {
             base.Update(dt);
+            UpdateGameTime(dt);
             UpdateCollision();
+        }
+
+        private void UpdateGameTime(float dt) {
+            GameTime += dt;
         }
 
         private void UpdateCollision() {

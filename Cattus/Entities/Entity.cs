@@ -7,15 +7,12 @@ namespace Cattus.Entities {
         protected int _maskW;
 
         protected Entity(string url): base(url) {
-            UpdateMaskSize();
+            UpdateMask();
         }
 
         public CCRect Mask { get; protected set; }
 
-        public void UpdateMaskSize() {
-            _maskW = (int) (Texture.PixelsWide*ScaleX);
-            _maskH = (int) (Texture.PixelsHigh*ScaleY);
-        }
+
 
         public override void OnEnter() {
             base.OnEnter();
@@ -29,7 +26,9 @@ namespace Cattus.Entities {
         }
 
         protected virtual void UpdateMask() {
-            UpdateMaskSize();
+            _maskW = (int)(Texture.PixelsWide * ScaleX);
+            _maskH = (int)(Texture.PixelsHigh * ScaleY); 
+
             Mask = new CCRect(PositionX - (_maskW/2),
                 PositionY - (_maskH/2), _maskW, _maskH);
         }

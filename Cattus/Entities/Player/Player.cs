@@ -1,21 +1,25 @@
-﻿using CocosSharp;
+﻿using Cattus.Scenes.Game;
+using CocosSharp;
 
 namespace Cattus.Entities.Player {
     internal class Player: Entity {
         private const int MaxSpeed = 400;
+
+        /// velocity - ускорение
         private const int Velocity = 50;
 
-        /// <summary>
-        ///     _dir - направление движения. 1 - вправо, -1 - влево
-        ///     velocity - ускорение
-        ///     MaxSpeed - макс скорость
-        ///     _speed - текущая скорость
-        /// </summary>
+        //   направление движения. 1 - вправо, -1 - влево
         private int _dir = 1;
 
+        //  текущая скорость
         private int _speed;
 
-        public Player(): base(Resources.Player) {
+        private GameLayer _gameLayer;
+
+
+        public Player(GameLayer gl): base(Resources.Player) {
+            _gameLayer = gl;
+
             Tag = Tags.Player;
             Scale = 3;
         }
@@ -40,7 +44,7 @@ namespace Cattus.Entities.Player {
             base.Collision(other);
 
             if (other.Tag == Tags.Enemy){
-                Window.DefaultDirector.PopScene();
+                _gameLayer.Score -= 1;
             }
         }
 
