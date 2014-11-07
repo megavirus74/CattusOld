@@ -11,11 +11,10 @@ namespace Cattus.Scenes.Game {
 
         /** Game stats */
         public int Score = 0;
-        public float GameTime;
-
+        public float GameTime = 0;
+        public float LevelSpeed = 500;
         
         public GameLayer() {
-
             Score = 0;
             GameTime = 0;
 
@@ -30,23 +29,8 @@ namespace Cattus.Scenes.Game {
             AddEntity(new Bird(new CCPoint(400, 500), this));
         }
 
-
-        /// <summary>
-        ///     Вызывается из GameScene
-        /// </summary>
         public void OnKeyPressed(CCEventKeyboard e) {
             Player.Control(e.Keys);
-        }
-
-
-        public void AddEntity(Entity objEntity) {
-            AddChild(objEntity);
-            Entities.Add(objEntity);
-        }
-
-        public void RemoveEntity(Entity objEntity) {
-            RemoveChild(objEntity);
-            Entities.Remove(objEntity);
         }
 
         public override void OnEnter() {
@@ -76,6 +60,15 @@ namespace Cattus.Scenes.Game {
                     }
                 }
             }
+        }
+        public void AddEntity(Entity objEntity) {
+            AddChild(objEntity);
+            Entities.Add(objEntity);
+        }
+
+        public void RemoveEntity(Entity objEntity) {
+            RemoveChild(objEntity);
+            Entities.Remove(objEntity);
         }
     }
 }

@@ -138,6 +138,9 @@
     <Content Include="Resource\Image\Enemy\Wall.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resource\Image\Level\TestBG.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resource\Image\Player\Player.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

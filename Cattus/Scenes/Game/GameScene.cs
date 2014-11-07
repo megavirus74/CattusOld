@@ -8,11 +8,11 @@ namespace Cattus.Scenes.Game {
         public GameGui GameGui;
 
         public GameScene(CCWindow window): base(window) {
-            GameBackground = new GameBackground();
-            AddChild(GameBackground, -5);
-
             GameLayer = new GameLayer();
             AddChild(GameLayer, 0);
+
+            GameBackground = new GameBackground(GameLayer);
+            AddChild(GameBackground, -5);
 
             GameGui = new GameGui(GameLayer);
             AddChild(GameGui, 5);
