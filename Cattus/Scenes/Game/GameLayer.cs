@@ -9,13 +9,15 @@ namespace Cattus.Scenes.Game {
         public readonly List<Entity> Entities = new List<Entity>();
         public readonly Player Player;
 
-        public float GameTime = 0f;
-
         /** Game stats */
         public int Score = 0;
+        public float GameTime;
+
+        
         public GameLayer() {
 
             Score = 0;
+            GameTime = 0;
 
             Player = new Player(this) {
                 PositionX = Settings.ScreenWidth/2,
@@ -64,10 +66,13 @@ namespace Cattus.Scenes.Game {
         }
 
         private void UpdateCollision() {
-            foreach (Entity entity in Entities){
-                foreach (Entity entity1 in Entities){
-                    if (entity.Mask.IntersectsRect(entity1.Mask) && (entity != entity1)){
-                        entity.Collision(entity1);
+            // Updating collisions after 0.5 second after start
+            if (GameTime > 0.5) {
+                foreach (Entity entity in Entities){
+                    foreach (Entity entity1 in Entities){
+                        if (entity.Mask.IntersectsRect(entity1.Mask) && (entity != entity1)){
+                            entity.Collision(entity1);
+                        }
                     }
                 }
             }

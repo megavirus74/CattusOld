@@ -11,7 +11,7 @@ namespace Cattus.Scenes.Game {
         private const string ScoreText = "SCORE: {0}";
         private CCLabelTtf _scoreLabel;
 
-        private const string TimeText = "Time: {0:F2}";
+        private const string TimeText = "TIME: {0:F2}";
         private CCLabelTtf _timeLabel;
 
         public GameGui(GameLayer gl) {

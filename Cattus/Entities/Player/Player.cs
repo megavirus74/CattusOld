@@ -44,7 +44,8 @@ namespace Cattus.Entities.Player {
             base.Collision(other);
 
             if (other.Tag == Tags.Enemy){
-                _gameLayer.Score -= 1;
+//                _gameLayer.Score -= 1;
+                Window.DefaultDirector.PopScene();
             }
         }
 
