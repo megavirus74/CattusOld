@@ -17,7 +17,7 @@ namespace Cattus.Scenes.Game {
         public GameLayer() {
             player = new Player() {
                 PositionX = Settings.ScreenWidth/2,
-                PositionY = 200
+                PositionY = 100
             };
             AddEntity(player);
 

@@ -49,7 +49,7 @@ namespace Cattus.Entities.Player
             if (other.Tag == Tags.Enemy)
             {
                 Window.DefaultDirector.PopScene();
-                Log.Debug("Player collisiong with enemy");
+                //Log.Debug("Player collisiong with enemy");
             }
         }
 
@@ -61,7 +61,7 @@ namespace Cattus.Entities.Player
         public void Move(float dt)
         {
             PositionX += speed*dt;
-            Log.Debug(Mask.MaxX.ToString());
+            //Log.Debug(Mask.MaxX.ToString());
             if (Mask.MaxX > Window.WindowSizeInPixels.Width-50) dir = -1;
             if (Mask.MinX < 50) dir = 1;
             
