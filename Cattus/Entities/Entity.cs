@@ -1,4 +1,5 @@
 ﻿using System;
+using Cattus.Utils;
 using CocosSharp;
 
 namespace Cattus.Entities {
@@ -7,12 +8,16 @@ namespace Cattus.Entities {
         protected int _maskH;
 
         protected Entity(string url) : base(url) {
-            _maskW = (int) (Texture.PixelsWide*ScaleX);
-            _maskH = (int) (Texture.PixelsHigh*ScaleY);
+            UpdateMaskSize();
         }
 
         public CCRect Mask { get; protected set; }
 
+        public void UpdateMaskSize()
+        {
+            _maskW = (int)(Texture.PixelsWide * ScaleX);
+            _maskH = (int)(Texture.PixelsHigh * ScaleY);
+        }
 
         public override void OnEnter() {
             base.OnEnter();
@@ -24,10 +29,13 @@ namespace Cattus.Entities {
             base.Update(dt);
             UpdateMask();
         }
-
-        protected virtual void UpdateMask() {
-            Mask = new CCRect(PositionX - (Texture.PixelsWide/2),
-                PositionY - (Texture.PixelsHigh/2), _maskW, _maskH);
+        
+        protected virtual void UpdateMask()
+        {
+            UpdateMaskSize();
+            Mask = new CCRect(PositionX - (_maskW/2),
+                PositionY - (_maskH/2), _maskW, _maskH);
+//            Log.Debug(Mask + " PLAYER POS " + Position);
         }
 
         /// <summary>
