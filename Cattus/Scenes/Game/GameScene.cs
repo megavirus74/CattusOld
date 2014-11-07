@@ -2,24 +2,34 @@
 using CocosSharp;
 
 namespace Cattus.Scenes.Game {
-    internal class GameScene : CCScene {
-        public CCLayer GameLayer;
+    internal class GameScene: CCScene {
+        public GameBackground GameBackground;
+        public GameLayer GameLayer;
 
-        public GameScene(CCWindow window) : base(window) {
+        public GameScene(CCWindow window): base(window) {
+            GameBackground = new GameBackground();
+            AddChild(GameBackground);
+
             GameLayer = new GameLayer();
             AddChild(GameLayer);
 
-            var generalListener = new CCEventListenerKeyboard {OnKeyPressed = OnKeyPressed, OnKeyReleased = OnKeyReleased};
+            var generalListener = new CCEventListenerKeyboard {
+                OnKeyPressed = OnKeyPressed,
+                OnKeyReleased = OnKeyReleased
+            };
             AddEventListener(generalListener);
         }
 
         private void OnKeyPressed(CCEventKeyboard e) {
             Input.OnKeyPress(e.Keys);
+
+            GameLayer.OnKeyPressed(e);
         }
 
         private void OnKeyReleased(CCEventKeyboard e) {
             Input.OnKeyRelease(e.Keys);
-            if (e.Keys == CCKeys.Escape) {
+
+            if (e.Keys == CCKeys.Escape){
                 Log.Debug("Pop out Game Scene");
                 Window.DefaultDirector.PopScene();
             }

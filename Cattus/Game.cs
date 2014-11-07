@@ -1,9 +1,8 @@
-﻿using Cattus.Scenes.Game;
-using Cattus.Scenes.Menu;
+﻿using Cattus.Scenes.Menu;
 using CocosSharp;
 
 namespace Cattus {
-    internal class Game : CCApplicationDelegate {
+    internal class Game: CCApplicationDelegate {
         private static CCWindow sharedWindow;
         private CCScene _startScene;
 

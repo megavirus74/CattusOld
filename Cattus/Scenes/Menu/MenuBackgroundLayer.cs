@@ -1,13 +1,10 @@
-﻿using System.Reflection.Emit;
-using CocosSharp;
+﻿using CocosSharp;
 
 namespace Cattus.Scenes.Menu {
-    internal class MenuBackgroundLayer : CCLayerColor {
+    internal class MenuBackgroundLayer: CCLayerColor {
         public MenuBackgroundLayer() {
             Color = CCColor3B.Blue;
             Opacity = 20;
-
-            
         }
 
         public override void OnEnter() {

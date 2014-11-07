@@ -1,7 +1,10 @@
-﻿namespace Cattus.Entities.Enemy {
+﻿using CocosSharp;
+
+namespace Cattus.Entities.Enemy {
     internal abstract class Enemy: Entity {
-        protected Enemy(string url): base(url) {
+        protected Enemy(CCPoint startPos, string url): base(url) {
             Tag = Tags.Enemy;
+            Position = startPos;
         }
 
         public override void OnEnter() {
@@ -15,7 +18,7 @@
         }
 
         /// <summary>
-        /// Метод переопределяется и определяет движения врага на уровне
+        ///     Метод переопределяется и определяет движения врага на уровне
         /// </summary>
         public virtual void Move(float dt) {
         }
