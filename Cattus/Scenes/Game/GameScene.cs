@@ -5,6 +5,7 @@ namespace Cattus.Scenes.Game {
     internal class GameScene: CCScene {
         public GameBackground GameBackground;
         public GameLayer GameLayer;
+        public GameGui GameGui;
 
         public GameScene(CCWindow window): base(window) {
             GameBackground = new GameBackground();
@@ -12,6 +13,9 @@ namespace Cattus.Scenes.Game {
 
             GameLayer = new GameLayer();
             AddChild(GameLayer);
+
+            GameGui = new GameGui(GameLayer);
+            AddChild(GameGui);
 
             var generalListener = new CCEventListenerKeyboard {
                 OnKeyPressed = OnKeyPressed,

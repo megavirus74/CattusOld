@@ -1,10 +1,14 @@
-﻿using CocosSharp;
+﻿using Cattus.Scenes.Game;
+using CocosSharp;
 
 namespace Cattus.Entities.Enemy {
     internal abstract class Enemy: Entity {
-        protected Enemy(CCPoint startPos, string url): base(url) {
+        protected GameLayer _gameLayer;
+
+        protected Enemy(CCPoint startPos, string url, GameLayer gl): base(url) {
             Tag = Tags.Enemy;
             Position = startPos;
+            _gameLayer = gl;
         }
 
         public override void OnEnter() {

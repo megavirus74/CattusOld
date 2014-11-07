@@ -9,16 +9,21 @@ namespace Cattus.Scenes.Game {
         public readonly List<Entity> Entities = new List<Entity>();
         public readonly Player Player;
 
+        /** Game stats */
+        public int Score;
         public GameLayer() {
+
+            Score = 0;
+
             Player = new Player {
                 PositionX = Settings.ScreenWidth/2,
                 PositionY = Settings.StartPlayerHeight
             };
             AddEntity(Player);
 
-            AddEntity(new Bird(new CCPoint(0, 500)));
+            AddEntity(new Bird(new CCPoint(0, 500), this));
 
-            AddEntity(new Bird(new CCPoint(400, 500)));
+            AddEntity(new Bird(new CCPoint(400, 500), this));
         }
 
 
