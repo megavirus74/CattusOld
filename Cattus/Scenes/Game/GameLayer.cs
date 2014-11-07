@@ -28,6 +28,12 @@ namespace Cattus.Scenes.Game {
             };
             AddEntity(bird);
 
+            AddEntity(new Bird()
+            {
+                PositionX = Settings.ScreenWidth/2+120,
+                PositionY = 500
+            });
+
 
 
             var listener = new CCEventListenerKeyboard { OnKeyPressed = OnKeyPressed };

@@ -1,4 +1,5 @@
-﻿using CocosSharp;
+﻿using System;
+using CocosSharp;
 
 namespace Cattus.Entities.Enemy
 {
@@ -9,7 +10,7 @@ namespace Cattus.Entities.Enemy
         {
             Tag = Tags.Enemy;
         }
-        private int speed = 200;
+        private int speed = 180;
         public override void OnEnter()
         {
             base.OnEnter();
@@ -24,13 +25,13 @@ namespace Cattus.Entities.Enemy
         public void Move(float dt)
         {
             PositionX += speed * dt;
-            PositionY -= speed * dt;
-
-            if (PositionY < 0)
+            if (PositionX > Settings.ScreenWidth)
             {
-                Position = new CCPoint(0, 500);
-                speed += 50;
+                PositionX = -32;
             }
+          
+            PositionY = (float) ((5/12f)*Window.WindowSizeInPixels.Height +
+                                 (3/8f)*Math.Sin(PositionX / Settings.ScreenWidth*12f)*Settings.ScreenHeight);
         }
     }
 }
