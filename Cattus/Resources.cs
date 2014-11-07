@@ -3,7 +3,7 @@ using CocosSharp;
 
 namespace Cattus {
     internal class Resources {
-        public const string Player = "Example.png";
+        public const string Player = "Player.png";
 
         /** Добавляет в пути поиска ресурсов необходимые папки */
 

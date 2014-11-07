@@ -2,11 +2,11 @@
 using CocosSharp;
 
 namespace Cattus.Entities {
-    internal class Entity : CCSprite {
-        protected int _maskH;
+    internal abstract class Entity : CCSprite {
         protected int _maskW;
+        protected int _maskH;
 
-        public Entity(string url) : base(url) {
+        protected Entity(string url) : base(url) {
             _maskW = (int) (Texture.PixelsWide*ScaleX);
             _maskH = (int) (Texture.PixelsHigh*ScaleY);
         }

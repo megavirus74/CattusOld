@@ -1,8 +1,8 @@
 ﻿namespace Cattus {
     internal class Settings {
         /** General settings */
-        public const int ScreenWidth = 800;
-        public const int ScreenHeight = 600;
+        public const int ScreenWidth = 400;
+        public const int ScreenHeight = 700;
         public const string GameName = "Cattus";
         public const int Scale = 1;
 

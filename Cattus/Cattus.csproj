@@ -119,9 +119,13 @@
     <Folder Include="Resource\Image\Effects\" />
     <Folder Include="Resource\Image\Enemy\" />
     <Folder Include="Resource\Image\GUI\" />
-    <Folder Include="Resource\Image\Player\" />
     <Folder Include="Resource\Music\" />
     <Folder Include="Resource\Sound\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resource\Image\Player\Player.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

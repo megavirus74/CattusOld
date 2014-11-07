@@ -9,12 +9,16 @@ namespace Cattus.Scenes.Game {
             GameLayer = new GameLayer();
             AddChild(GameLayer);
 
-            var generalListener = new CCEventListenerKeyboard {OnKeyReleased = OnKeyReleased};
+            var generalListener = new CCEventListenerKeyboard {OnKeyPressed = OnKeyPressed, OnKeyReleased = OnKeyReleased};
             AddEventListener(generalListener);
         }
 
+        private void OnKeyPressed(CCEventKeyboard e) {
+            Input.OnKeyPress(e.Keys);
+        }
 
         private void OnKeyReleased(CCEventKeyboard e) {
+            Input.OnKeyRelease(e.Keys);
             if (e.Keys == CCKeys.Escape) {
                 Log.Debug("Pop out Game Scene");
                 Window.DefaultDirector.PopScene();
