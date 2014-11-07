@@ -10,6 +10,7 @@ namespace Cattus.Entities.Enemy
             Tag = Tags.Enemy;
         }
         private int speed = 200;
+        private int pos = 1;
         public override void OnEnter()
         {
             base.OnEnter();
@@ -23,13 +24,14 @@ namespace Cattus.Entities.Enemy
         }
         public void Move(float dt)
         {
-            PositionX += speed * dt;
-            PositionY -= speed * dt;
+            PositionX += speed * dt*pos;
+            PositionY -= speed*dt;
 
             if (PositionY < 0)
             {
-                Position = new CCPoint(0, 500);
+                Position = new CCPoint(Settings.ScreenWidth / 2 + Settings.ScreenWidth / 2 * pos, 500);
                 speed += 50;
+                pos *= -1;
             }
         }
     }
