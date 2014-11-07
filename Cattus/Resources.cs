@@ -5,6 +5,7 @@ namespace Cattus {
     internal class Resources {
         public const string Player = "Player.png";
         public const string Wall = "Wall.png";
+        public const string Bird = "Bird.png";
 
         /** Добавляет в пути поиска ресурсов необходимые папки */
 

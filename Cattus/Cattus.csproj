@@ -91,6 +91,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Enemy\Bird.cs" />
     <Compile Include="Entities\Enemy\Wall.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\Player\Player.cs" />
@@ -122,6 +123,9 @@
     <Folder Include="Resource\Sound\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resource\Image\Enemy\Bird.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resource\Image\Enemy\Wall.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

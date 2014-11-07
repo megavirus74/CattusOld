@@ -11,6 +11,7 @@ using SharpDX.Direct3D11;
 namespace Cattus.Scenes.Game {
     internal class GameLayer : CCLayer {
         private Player player;
+        private Bird bird;
 
         List<Entity> entities=new List<Entity>();
         public GameLayer() {
@@ -21,9 +22,18 @@ namespace Cattus.Scenes.Game {
             AddEntity(new Wall(){Position = new CCPoint(200, 200)});
             AddEntity(player);
 
+            bird = new Bird()
+            {
+                PositionX = -100,
+                PositionY = 600
+            };
+           AddEntity(bird);
+
+
             var listener = new CCEventListenerKeyboard { OnKeyPressed = OnKeyPressed };
             AddEventListener(listener);
         }
+
 
         private void OnKeyPressed(CCEventKeyboard e)
         {
@@ -47,12 +57,14 @@ namespace Cattus.Scenes.Game {
             base.OnEnter();
 
             Schedule(Update);
+            
+           
         }
 
         public override void Update(float dt) {
             base.Update(dt);
             UpdateCollision();
-        }
+        } 
 
         private void UpdateCollision()
         {
