@@ -1,43 +1,21 @@
-﻿﻿using System;
-﻿using Cattus.Utils;
-using CocosSharp;
+﻿using System;
 
-namespace Cattus.Entities.Enemy
-{
-    internal class Bird : Entity
-    {
-        public Bird()
-            : base(Resources.Bird)
-        {
-            Tag = Tags.Enemy;
-        }
-
-        private int speed = 200;
+namespace Cattus.Entities.Enemy {
+    internal class Bird: Enemy {
         private int pos = 1;
-        private static int count = 0;
-        public override void OnEnter()
-        {
-            base.OnEnter();
-            Schedule(Update);
+        private int speed = 200;
+
+        public Bird(): base(Resources.Bird) {
         }
 
-        public override void Update(float dt)
-        {
-            base.Update(dt);
-            Move(dt);
-        }
-        public void Move(float dt)
-        {
-            if (PositionX > Settings.ScreenWidth)
-            {
+        public override void Move(float dt) {
+            if (PositionX > Settings.ScreenWidth){
                 PositionX = -32;
-                count++;
-                Log.Debug(count.ToString());
             }
-            PositionX += speed * dt*pos;
+            PositionX += speed*dt*pos;
 
             PositionY = (float) ((5/12f)*Window.WindowSizeInPixels.Height +
-                                 (3/8f)*Math.Sin(PositionX / Settings.ScreenWidth*12f)*Settings.ScreenHeight);
+                                 (3/8f)*Math.Sin(PositionX/Settings.ScreenWidth*12f)*Settings.ScreenHeight);
         }
     }
 }

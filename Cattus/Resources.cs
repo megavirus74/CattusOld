@@ -26,7 +26,7 @@ namespace Cattus {
             application.ContentSearchPaths.Add("Sound");
 
             CCSpriteFontCache.FontScale = 1f;
-            CCSpriteFontCache.RegisterFont("arial", 24);
+            CCSpriteFontCache.RegisterFont("kongtext", 24);
         }
     }
 }
