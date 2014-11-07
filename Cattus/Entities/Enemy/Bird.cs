@@ -1,4 +1,5 @@
-﻿using CocosSharp;
+﻿using Cattus.Utils;
+using CocosSharp;
 
 namespace Cattus.Entities.Enemy
 {
@@ -11,6 +12,7 @@ namespace Cattus.Entities.Enemy
         }
         private int speed = 200;
         private int pos = 1;
+        private int count = 0;
         public override void OnEnter()
         {
             base.OnEnter();
@@ -32,6 +34,8 @@ namespace Cattus.Entities.Enemy
                 Position = new CCPoint(Settings.ScreenWidth / 2 + Settings.ScreenWidth / 2 * pos, 500);
                 speed += 50;
                 pos *= -1;
+                count++;
+                Log.Debug(count.ToString());
             }
         }
     }
