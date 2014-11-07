@@ -49,6 +49,7 @@ namespace Cattus.Entities.Player
             if (other.Tag == Tags.Enemy)
             {
                 Log.Debug("Player collisiong with wall");
+                Window.DefaultDirector.PopScene();
                  
             }
         }

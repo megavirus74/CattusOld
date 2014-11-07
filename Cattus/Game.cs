@@ -22,7 +22,7 @@ namespace Cattus {
             mainWindow.AllowUserResizing = false;
 
 
-            _startScene = new GameScene(mainWindow);
+            _startScene = new MenuScene(mainWindow);
             mainWindow.RunWithScene(_startScene);
         }
     }
