@@ -26,10 +26,11 @@ namespace Cattus.Scenes.Game {
 
             AddEntity(new Bird(new CCPoint(0, 500), this));
 
-            AddEntity(new Bird(new CCPoint(400, 500), this));
+
+            AddEntity(new Bird(new CCPoint(300, 500), this));
         }
 
-        public void OnKeyPressed(CCEventKeyboard e) {
+        public void OnKeyReleased(CCEventKeyboard e) {
             Player.Control(e.Keys);
         }
 

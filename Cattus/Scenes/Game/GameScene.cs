@@ -26,12 +26,12 @@ namespace Cattus.Scenes.Game {
 
         private void OnKeyPressed(CCEventKeyboard e) {
             Input.OnKeyPress(e.Keys);
-
-            GameLayer.OnKeyPressed(e);
         }
 
         private void OnKeyReleased(CCEventKeyboard e) {
             Input.OnKeyRelease(e.Keys);
+
+            GameLayer.OnKeyReleased(e);
 
             if (e.Keys == CCKeys.Escape){
                 Log.Debug("Pop out Game Scene");
