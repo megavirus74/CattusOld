@@ -15,6 +15,8 @@ namespace Cattus.Scenes.Game {
         public float LevelSpeed = 500;
         public int Score = 0;
 
+        private bool _isRunning;
+
         public GameLayer() {
             Score = 0;
             GameTime = 0;
@@ -37,6 +39,22 @@ namespace Cattus.Scenes.Game {
             throw new NotImplementedException();
         }
 
+        public bool TooglePauseGame() {
+            _isRunning = !_isRunning;
+
+            if (_isRunning){
+                foreach (Entity ent in Entities)
+                    ent.Pause();
+                LevelSpeed = 0;
+            }
+            else{
+                foreach (Entity ent in Entities)
+                    ent.Resume();
+                LevelSpeed = 500;
+            }
+
+            return _isRunning;
+        }
 
         public override void OnEnter() {
             base.OnEnter();
@@ -45,9 +63,11 @@ namespace Cattus.Scenes.Game {
         }
 
         public override void Update(float dt) {
-            base.Update(dt);
-            UpdateGameTime(dt);
-            UpdateCollision();
+            if (!_isRunning){
+                base.Update(dt);
+                UpdateGameTime(dt);
+                UpdateCollision();
+            }
         }
 
         private void UpdateGameTime(float dt) {
