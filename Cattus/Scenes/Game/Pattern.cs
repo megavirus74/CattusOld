@@ -18,6 +18,5 @@ namespace Cattus.Scenes.Game {
         public void Logic() {
             throw new NotImplementedException();
         }
-
     }
 }
