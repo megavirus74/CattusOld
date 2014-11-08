@@ -107,6 +107,8 @@
     <Compile Include="Scenes\Game\GameLayer.cs" />
     <Compile Include="Scenes\Game\GameScene.cs" />
     <Compile Include="Scenes\Game\GameBackground.cs" />
+    <Compile Include="Scenes\Game\Level.cs" />
+    <Compile Include="Scenes\Game\Pattern.cs" />
     <Compile Include="Scenes\Menu\MenuBackgroundLayer.cs" />
     <Compile Include="Scenes\Menu\MenuLayer.cs" />
     <Compile Include="Scenes\Menu\MenuScene.cs" />
