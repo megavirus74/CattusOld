@@ -21,7 +21,6 @@ namespace Cattus.Entities.Player {
             _gameLayer = gl;
 
             Tag = Tags.Player;
-            Scale = 3;
         }
 
         public override void OnEnter() {
