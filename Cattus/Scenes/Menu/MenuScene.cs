@@ -4,7 +4,7 @@ using Cattus.Utils;
 using CocosSharp;
 
 namespace Cattus.Scenes.Menu {
-    internal class MenuScene : CCScene {
+    internal class MenuScene: CCScene {
         private readonly MenuLayer _menuLayer;
         private MenuBackgroundLayer _backgroundLayer;
 
@@ -25,12 +25,12 @@ namespace Cattus.Scenes.Menu {
 
 
         private void OnKeyReleased(CCEventKeyboard e) {
-            if (e.Keys == CCKeys.Enter || e.Keys == CCKeys.Space) {
+            if (e.Keys == CCKeys.Enter || e.Keys == CCKeys.Space){
                 Log.Debug("Enter//Space was pressed. Going to next scene.");
                 Window.DefaultDirector.PushScene(new GameScene(Window));
             }
 
-            if (e.Keys == CCKeys.Escape) {
+            if (e.Keys == CCKeys.Escape){
                 Log.Debug("Esc was pressed in Menu");
                 Environment.Exit(0);
             }

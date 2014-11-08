@@ -48,6 +48,9 @@
     <Reference Include="Lidgren.Network">
       <HintPath>..\packages\CocosSharp.WindowsDX.1.2.0.0\lib\net40\Lidgren.Network.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
     <Reference Include="MonoGame.Framework">
       <HintPath>..\packages\CocosSharp.WindowsDX.1.2.0.0\lib\net40\MonoGame.Framework.dll</HintPath>
     </Reference>
@@ -92,6 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Enemy\Bird.cs" />
+    <Compile Include="Entities\Enemy\Enemy.cs" />
     <Compile Include="Entities\Enemy\Wall.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\Player\Player.cs" />
@@ -99,9 +103,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources.cs" />
-    <Compile Include="Resource\Patterns\Pattern1_1.cs" />
+    <Compile Include="Scenes\Game\GameGui.cs" />
     <Compile Include="Scenes\Game\GameLayer.cs" />
     <Compile Include="Scenes\Game\GameScene.cs" />
+    <Compile Include="Scenes\Game\GameBackground.cs" />
     <Compile Include="Scenes\Menu\MenuBackgroundLayer.cs" />
     <Compile Include="Scenes\Menu\MenuLayer.cs" />
     <Compile Include="Scenes\Menu\MenuScene.cs" />
@@ -114,9 +119,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Resource\fonts\kongtext-24.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resource\fonts\" />
     <Folder Include="Resource\Icon\" />
     <Folder Include="Resource\Image\Effects\" />
     <Folder Include="Resource\Image\GUI\" />
@@ -128,6 +135,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resource\Image\Enemy\Wall.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\Image\Level\TestBG.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resource\Image\Player\Player.png">

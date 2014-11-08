@@ -8,8 +8,10 @@ namespace Cattus.Utils {
         }
 
         public static void Debug(string text) {
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Print(text);
+            if (Settings.IsDebug){
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Print(text);
+            }
         }
 
         private static void Print(string text) {

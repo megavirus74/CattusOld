@@ -1,89 +1,75 @@
 ﻿using System.Collections.Generic;
-using System.Data;
 using Cattus.Entities;
 using Cattus.Entities.Enemy;
 using Cattus.Entities.Player;
-using Cattus.Utils;
 using CocosSharp;
-using SharpDX;
-using SharpDX.Direct3D11;
 
 namespace Cattus.Scenes.Game {
-    internal class GameLayer : CCLayer {
-        private Player player;
-        private Bird bird;
+    internal class GameLayer: CCLayer {
+        public readonly List<Entity> Entities = new List<Entity>();
+        public readonly Player Player;
 
-        List<Entity> entities=new List<Entity>();
+        /** Game stats */
+        public int Score = 0;
+        public float GameTime = 0;
+        public float LevelSpeed = 500;
+        
         public GameLayer() {
-            player = new Player() {
+            Score = 0;
+            GameTime = 0;
+
+            Player = new Player(this) {
                 PositionX = Settings.ScreenWidth/2,
-                PositionY = 100
+                PositionY = Settings.StartPlayerHeight
             };
-            AddEntity(player);
+            AddEntity(Player);
 
-            bird = new Bird()
-            {
-                PositionX = 0,
-                PositionY = 500
-            };
-            AddEntity(bird);
-
-            AddEntity(new Bird()
-            {
-                PositionX = Settings.ScreenWidth/2+120,
-                PositionY = 500
-            });
+            AddEntity(new Bird(new CCPoint(0, 500), this));
 
 
-
-            var listener = new CCEventListenerKeyboard { OnKeyPressed = OnKeyPressed };
-            AddEventListener(listener);
+            AddEntity(new Bird(new CCPoint(300, 500), this));
         }
 
-
-        private void OnKeyPressed(CCEventKeyboard e)
-        {
-            player.OnKeyPressed(e.Keys);
-        }
-
-
-        public void AddEntity(Entity objEntity)
-        {
-            AddChild(objEntity);
-            entities.Add(objEntity);
-        }
-
-        public void RemoveEntity(Entity objEntity)
-        {
-            RemoveChild(objEntity);
-            entities.Remove(objEntity);
+        public void OnKeyReleased(CCEventKeyboard e) {
+            Player.Control(e.Keys);
         }
 
         public override void OnEnter() {
             base.OnEnter();
 
             Schedule(Update);
-            
-           
         }
 
         public override void Update(float dt) {
             base.Update(dt);
+            UpdateGameTime(dt);
             UpdateCollision();
-        } 
+        }
 
-        private void UpdateCollision()
-        {
-            foreach (var entity in entities)
-            {
-                foreach (var entity1 in entities)
-                {
-                    if (entity.Mask.IntersectsRect(entity1.Mask) && (entity != entity1))
-                    {
-                        entity.Collision(entity1);
+        private void UpdateGameTime(float dt) {
+            GameTime += dt;
+        }
+
+        private void UpdateCollision() {
+            // Updating collisions after 0.5 second after start
+            if (GameTime > 0.5) {
+                foreach (Entity entity in Entities){
+                    foreach (Entity entity1 in Entities){
+                        if (entity.Mask.IntersectsRect(entity1.Mask) && (entity != entity1)){
+                            entity.Collision(entity1);
+                        }
                     }
                 }
             }
+        }
+        public void AddEntity(Entity objEntity) {
+            AddChild(objEntity);
+            Entities.Add(objEntity);
+        }
+
+        public void RemoveEntity(Entity objEntity) {
+            RemoveChild(objEntity);
+            Entities.Remove(objEntity);
         }
     }
 }

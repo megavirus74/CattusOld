@@ -7,6 +7,8 @@ namespace Cattus {
         public const string Wall = "Wall.png";
         public const string Bird = "Bird.png";
 
+        public const string TestBG = "TestBG.png";
+
         /** Добавляет в пути поиска ресурсов необходимые папки */
 
         public static void LoadContent(CCApplication application) {
@@ -22,11 +24,12 @@ namespace Cattus {
             application.ContentSearchPaths.Add("Image\\Enemy");
             application.ContentSearchPaths.Add("Image\\Effects");
             application.ContentSearchPaths.Add("Image\\GUI");
+            application.ContentSearchPaths.Add("Image\\Level");
             application.ContentSearchPaths.Add("Music");
             application.ContentSearchPaths.Add("Sound");
 
             CCSpriteFontCache.FontScale = 1f;
-            CCSpriteFontCache.RegisterFont("arial", 24);
+            CCSpriteFontCache.RegisterFont("kongtext", 24);
         }
     }
 }

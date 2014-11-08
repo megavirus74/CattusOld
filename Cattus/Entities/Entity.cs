@@ -1,23 +1,18 @@
 ﻿using System;
-using Cattus.Utils;
 using CocosSharp;
 
 namespace Cattus.Entities {
-    internal abstract class Entity : CCSprite {
-        protected int _maskW;
+    internal abstract class Entity: CCSprite {
         protected int _maskH;
+        protected int _maskW;
 
-        protected Entity(string url) : base(url) {
-            UpdateMaskSize();
+        protected Entity(string url): base(url) {
+            UpdateMask();
         }
 
         public CCRect Mask { get; protected set; }
 
-        public void UpdateMaskSize()
-        {
-            _maskW = (int)(Texture.PixelsWide * ScaleX);
-            _maskH = (int)(Texture.PixelsHigh * ScaleY);
-        }
+
 
         public override void OnEnter() {
             base.OnEnter();
@@ -29,13 +24,13 @@ namespace Cattus.Entities {
             base.Update(dt);
             UpdateMask();
         }
-        
-        protected virtual void UpdateMask()
-        {
-            UpdateMaskSize();
+
+        protected virtual void UpdateMask() {
+            _maskW = (int)(Texture.PixelsWide * ScaleX);
+            _maskH = (int)(Texture.PixelsHigh * ScaleY); 
+
             Mask = new CCRect(PositionX - (_maskW/2),
                 PositionY - (_maskH/2), _maskW, _maskH);
-//            Log.Debug(Mask + " PLAYER POS " + Position);
         }
 
         /// <summary>
@@ -43,7 +38,6 @@ namespace Cattus.Entities {
         /// </summary>
         /// <param name="other"> Объект с которым произошло столкновение </param>
         public virtual void Collision(Entity other) {
-
         }
 
 

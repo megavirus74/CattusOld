@@ -1,6 +1,6 @@
 ﻿using CocosSharp;
 
 namespace Cattus.Scenes.Menu {
-    internal class MenuLayer : CCLayer {
+    internal class MenuLayer: CCLayer {
     }
 }
