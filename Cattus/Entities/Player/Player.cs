@@ -1,4 +1,5 @@
 ﻿using Cattus.Scenes.Game;
+using Cattus.Scenes.GameOver;
 using CocosSharp;
 
 namespace Cattus.Entities.Player {
@@ -55,7 +56,7 @@ namespace Cattus.Entities.Player {
             if (other.Tag == Tags.Enemy){
 //                _gameLayer.Score -= 1;
 
-                Window.DefaultDirector.PopScene();
+                Window.RunWithScene(new GameOverScene(Window));
             }
         }
 

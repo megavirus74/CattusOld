@@ -14,6 +14,8 @@ namespace Cattus.Scenes.Game {
         public float GameTime = 0;
         public float LevelSpeed = 500;
         public int Score = 0;
+        public static float GameOverTime;
+        public static int GameOverScore;
 
         private bool _isRunning;
 
@@ -39,7 +41,7 @@ namespace Cattus.Scenes.Game {
             throw new NotImplementedException();
         }
 
-        public bool TooglePauseGame() {
+        public bool TogglePauseGame() {
             _isRunning = !_isRunning;
 
             if (_isRunning){
@@ -79,13 +81,18 @@ namespace Cattus.Scenes.Game {
             if (GameTime > 0.5){
                 foreach (Entity entity in Entities){
                     foreach (Entity entity1 in Entities){
-                        if (entity.Mask.IntersectsRect(entity1.Mask) && (entity != entity1)){
+                        if (entity.Mask.IntersectsRect(entity1.Mask) && (entity != entity1))
+                        {
+                            GameOverTime = GameTime;
+                            GameOverScore = Score;
                             entity.Collision(entity1);
+                            
                         }
                     }
                 }
             }
         }
+
 
         public void AddEntity(Entity objEntity) {
             AddChild(objEntity);

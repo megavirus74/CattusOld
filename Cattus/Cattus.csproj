@@ -67,8 +67,6 @@
       <HintPath>..\packages\CocosSharp.WindowsDX.1.2.0.0\lib\net40\Lidgren.Network.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
-    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
-    <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
     <Reference Include="MonoGame.Framework">
       <HintPath>..\packages\CocosSharp.WindowsDX.1.2.0.0\lib\net40\MonoGame.Framework.dll</HintPath>
     </Reference>
@@ -121,6 +119,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources.cs" />
+    <Compile Include="Scenes\GameOver\GameOverBackgroundLayer.cs" />
+    <Compile Include="Scenes\GameOver\GameOverLayer.cs" />
+    <Compile Include="Scenes\GameOver\GameOverScene.cs" />
     <Compile Include="Scenes\Game\GameGui.cs" />
     <Compile Include="Scenes\Game\GameLayer.cs" />
     <Compile Include="Scenes\Game\GameScene.cs" />

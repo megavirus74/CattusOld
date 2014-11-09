@@ -38,7 +38,7 @@ namespace Cattus.Scenes.Game {
                 Window.DefaultDirector.PopScene();
             }
             if (e.Keys == CCKeys.P) {
-                Log.Debug("PauseGame: " + GameLayer.TooglePauseGame());
+                Log.Debug("PauseGame: " + GameLayer.TogglePauseGame());
             }
         }
     }
