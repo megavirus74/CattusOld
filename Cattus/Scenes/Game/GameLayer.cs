@@ -63,6 +63,7 @@ namespace Cattus.Scenes.Game {
             base.OnEnter();
 
             Schedule(Update);
+            Schedule(UpdateScore, 0.1f);
         }
 
         public override void Update(float dt) {
@@ -70,9 +71,12 @@ namespace Cattus.Scenes.Game {
                 base.Update(dt);
                 UpdateGameTime(dt);
                 UpdateCollision();
-                Score += LevelSpeed*dt;
-                LevelSpeed += 20*dt;
             }
+        }
+
+        private void UpdateScore(float dt) {
+            Score += (LevelSpeed * dt)/50;
+            LevelSpeed += 20 * dt;
         }
 
         private void UpdateGameTime(float dt) {

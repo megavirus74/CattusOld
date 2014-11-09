@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Globalization;
 using Cattus.Scenes.Game;
 using CocosSharp;
 
-namespace Cattus.Scenes.GameOver
-{
-    class GameOverBackgroundLayer: CCLayerColor
-
-    {
+namespace Cattus.Scenes.GameOver {
+    internal class GameOverBackgroundLayer: CCLayerColor {
         public void MenuBackgroundLayer() {
             Color = CCColor3B.Gray;
             Opacity = 20;
@@ -20,9 +13,8 @@ namespace Cattus.Scenes.GameOver
         public override void OnEnter() {
             base.OnEnter();
 
-            
-            var gameOverLabel = new CCLabelTtf("Game Over!", "kongtext", 25)
-            {
+
+            var gameOverLabel = new CCLabelTtf("Game Over!", "kongtext", 25) {
                 Position = Window.WindowSizeInPixels.Center + new CCPoint(0, 20),
                 IsAntialiased = false,
                 AnchorPoint = CCPoint.AnchorMiddleBottom,
@@ -30,18 +22,15 @@ namespace Cattus.Scenes.GameOver
             };
             AddChild(gameOverLabel);
 
-            var timeLabel = new CCLabelTtf("Elapsed time: " + GameLayer.GameOverTime.ToString() + 
-                " seconds\nYour score is: " + GameLayer.GameOverScore.ToString(), "kongtext", 15)
-            {
-                Position = Window.WindowSizeInPixels.Center,
-                IsAntialiased = false,
-                AnchorPoint = CCPoint.AnchorMiddleTop,
-                Color = CCColor3B.Gray
-            };
+            var timeLabel = new CCLabelTtf(string.Format(CultureInfo.InvariantCulture, "Elapsed time: {0:F0} seconds\nYour score is: {1:F2}", GameLayer.GameOverScore, GameLayer.GameOverTime), "kongtext", 15) {
+                                               Position = Window.WindowSizeInPixels.Center,
+                                               IsAntialiased = false,
+                                               AnchorPoint = CCPoint.AnchorMiddleTop,
+                                               Color = CCColor3B.Gray
+                                           };
             AddChild(timeLabel);
 
-            var hintLabel = new CCLabelTtf("Press Space to restart", "kongtext", 10)
-            {
+            var hintLabel = new CCLabelTtf("Press Space to restart", "kongtext", 10) {
                 Position = Window.WindowSizeInPixels.Center - new CCPoint(0, 180),
                 IsAntialiased = false,
                 AnchorPoint = CCPoint.AnchorMiddleBottom,
