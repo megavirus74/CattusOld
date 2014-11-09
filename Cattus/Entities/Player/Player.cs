@@ -45,6 +45,7 @@ namespace Cattus.Entities.Player {
 
             if (other.Tag == Tags.Enemy){
 //                _gameLayer.Score -= 1;
+
                 Window.DefaultDirector.PopScene();
             }
         }

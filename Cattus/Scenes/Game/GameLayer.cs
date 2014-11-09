@@ -71,5 +71,7 @@ namespace Cattus.Scenes.Game {
             RemoveChild(objEntity);
             Entities.Remove(objEntity);
         }
+
+
     }
 }
