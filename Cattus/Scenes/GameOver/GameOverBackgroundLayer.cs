@@ -22,7 +22,7 @@ namespace Cattus.Scenes.GameOver {
             };
             AddChild(gameOverLabel);
 
-            var timeLabel = new CCLabelTtf(string.Format(CultureInfo.InvariantCulture, "Elapsed time: {0:F0} seconds\nYour score is: {1:F2}", GameLayer.GameOverScore, GameLayer.GameOverTime), "kongtext", 15) {
+            var timeLabel = new CCLabelTtf(string.Format(CultureInfo.InvariantCulture, "Elapsed time: {0:F2} seconds\nYour score is: {1:F0}", GameLayer.GameOverTime, GameLayer.GameOverScore), "kongtext", 15) {
                                                Position = Window.WindowSizeInPixels.Center,
                                                IsAntialiased = false,
                                                AnchorPoint = CCPoint.AnchorMiddleTop,
