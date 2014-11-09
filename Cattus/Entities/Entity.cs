@@ -5,7 +5,7 @@ namespace Cattus.Entities {
     internal abstract class Entity: CCSprite {
         protected int _maskH;
         protected int _maskW;
-
+        protected const int MaskLesser = 12;
         protected Entity(string url): base(url) {
             UpdateMask();
         }
@@ -26,8 +26,8 @@ namespace Cattus.Entities {
         }
 
         protected virtual void UpdateMask() {
-            _maskW = (int)(Texture.PixelsWide * ScaleX);
-            _maskH = (int)(Texture.PixelsHigh * ScaleY); 
+            _maskW = (int)(Texture.PixelsWide * ScaleX) - MaskLesser;
+            _maskH = (int)(Texture.PixelsHigh * ScaleY) - MaskLesser; 
 
             Mask = new CCRect(PositionX - (_maskW/2),
                 PositionY - (_maskH/2), _maskW, _maskH);

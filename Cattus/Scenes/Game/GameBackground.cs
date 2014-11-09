@@ -5,9 +5,8 @@ namespace Cattus.Scenes.Game {
     internal class GameBackground: CCLayerColor {
 
         private CCSprite _levelImage;
-        private CCSprite _levelImage2;
 
-        private GameLayer _gameLayer;
+        private readonly GameLayer _gameLayer;
         public GameBackground(GameLayer gl) {
             Color = CCColor3B.Blue;
             Opacity = 50;

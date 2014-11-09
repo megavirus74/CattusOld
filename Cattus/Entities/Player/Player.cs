@@ -21,7 +21,6 @@ namespace Cattus.Entities.Player {
             _gameLayer = gl;
 
             Tag = Tags.Player;
-            Scale = 3;
         }
 
         public override void OnEnter() {
@@ -31,7 +30,17 @@ namespace Cattus.Entities.Player {
 
         public override void Update(float dt) {
             base.Update(dt);
+            UpdateImage();
             Move(dt);
+        }
+
+        private void UpdateImage() {
+            if (_speed > 0){
+                FlipX = false;
+            }
+            else{
+                FlipX = true;
+            }
         }
 
         public void Control(CCKeys e) {
