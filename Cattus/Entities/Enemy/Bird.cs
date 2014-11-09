@@ -16,9 +16,9 @@ namespace Cattus.Entities.Enemy {
         public override void Move(float dt) {
             if (PositionX > Settings.ScreenWidth){
                 PositionX = -32;
-                _gameLayer.Score += 1;
+                
             }
-            PositionX += HSpeed*dt;
+            PositionX += HSpeed * dt;
 
             _vSpeed += Velocity*dir;
             if (_vSpeed > Amplitude){

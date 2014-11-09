@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Cattus.Entities;
 using Cattus.Entities.Enemy;
 using Cattus.Entities.Player;
@@ -13,9 +14,9 @@ namespace Cattus.Scenes.Game {
 
         public float GameTime = 0;
         public float LevelSpeed = 500;
-        public int Score = 0;
+        public float Score = 0;
         public static float GameOverTime;
-        public static int GameOverScore;
+        public static float GameOverScore;
 
         private bool _isRunning;
 
@@ -69,6 +70,8 @@ namespace Cattus.Scenes.Game {
                 base.Update(dt);
                 UpdateGameTime(dt);
                 UpdateCollision();
+                Score += LevelSpeed*dt;
+                LevelSpeed += 20*dt;
             }
         }
 
