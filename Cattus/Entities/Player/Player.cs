@@ -1,4 +1,5 @@
 ﻿using Cattus.Scenes.Game;
+using Cattus.Scenes.GameOver;
 using CocosSharp;
 
 namespace Cattus.Entities.Player {
@@ -21,7 +22,6 @@ namespace Cattus.Entities.Player {
             _gameLayer = gl;
 
             Tag = Tags.Player;
-            Scale = 3;
         }
 
         public override void OnEnter() {
@@ -31,7 +31,17 @@ namespace Cattus.Entities.Player {
 
         public override void Update(float dt) {
             base.Update(dt);
+            UpdateImage();
             Move(dt);
+        }
+
+        private void UpdateImage() {
+            if (_speed > 0){
+                FlipX = false;
+            }
+            else{
+                FlipX = true;
+            }
         }
 
         public void Control(CCKeys e) {
@@ -45,7 +55,8 @@ namespace Cattus.Entities.Player {
 
             if (other.Tag == Tags.Enemy){
 //                _gameLayer.Score -= 1;
-                Window.DefaultDirector.PopScene();
+
+                Window.RunWithScene(new GameOverScene(Window));
             }
         }
 
