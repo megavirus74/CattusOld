@@ -3,10 +3,10 @@ using CocosSharp;
 
 namespace Cattus.Entities.Player {
     internal class Player: Entity {
-        private const int MaxSpeed = 400;
+        private const int MaxSpeed = 500;
 
         /// velocity - ускорение
-        private const int Velocity = 50;
+        private const int Velocity = 70;
 
         //   направление движения. 1 - вправо, -1 - влево
         private int _dir = 1;
